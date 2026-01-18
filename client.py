@@ -46,7 +46,9 @@ def receive():
 font_win = font.SysFont('Georgia', 72)#<---------------------
 font_main = font.SysFont('Georgia', 36)
 # --- ЗОБРАЖЕННЯ ----
-
+bg = image.load('images/1686178678_klau-club-p-les-gori-pinterest-2.jpg')
+bg = transform.scale(bg, (WIDTH, HEIGHT))
+#<картинка об'єкта>
 # --- ЗВУКИ ---
 sound1 = mixer.Sound("D:\робота\python mastery\game\ping_pong\ping-pong\Voicy_No! It's Going To Be  Ugly.mp3")
 
@@ -96,6 +98,7 @@ while True:
     if game_state:
         screen.fill((30, 30, 30))
         draw.rect(screen, (0, 255, 0), (20, game_state['paddles']['0'], 20, 100))
+        #screen.blit(<об'єкт картинка>, (20,  game_state['paddles']['0'])) 
         draw.rect(screen, (255, 0, 255), (WIDTH - 40, game_state['paddles']['1'], 20, 100))
         draw.circle(screen, (255, 255, 255), (game_state['ball']['x'], game_state['ball']['y']), 10)
         score_text = font_main.render(f"{game_state['scores'][0]} : {game_state['scores'][1]}", True, (255, 255, 255))
@@ -110,6 +113,7 @@ while True:
                 pass
 
     else:
+        screen.blit(bg, (0,0))
         wating_text = font_main.render(f"Очікування гравців...", True, (255, 255, 255))
         screen.blit(wating_text, (WIDTH // 2 - 25, 20))
 
