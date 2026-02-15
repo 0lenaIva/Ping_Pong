@@ -4,7 +4,7 @@ import threading
 import time
 import random
 
-WIDTH, HEIGHT = 800, 600
+WIDTH, HEIGHT = 800, 600#розміри екрану
 BALL_SPEED = 5
 PADDLE_SPEED = 10
 COUNTDOWN_START = 3
